@@ -38,6 +38,7 @@ extension SharedSequence {
 }
 
 extension ObservableConvertibleType {
+
     func resultDriver() -> Driver<Result<Element>> {
         return self.asObservable()
             .map { Result.succeeded($0) }
