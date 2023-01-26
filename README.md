@@ -2,6 +2,7 @@
 
 - RxFirebase の ビルドが M1 mac 以上でのビルドが面倒なので代わりの処理を考案中
 - extension を作成して結果とエラーを一度で取得できるように
+- Podsも含めて M2 mac で Build Settings に変更を加えずにビルドできることを確認
 
 ```
 let (objects, error) = Driver<[Model]>.split(result: Observable処理.resultDriver())
