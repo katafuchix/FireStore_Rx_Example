@@ -7,12 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2FE852751EEC3445694D0745 /* Pods_FireStore_Rx_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65899DEBD71A70A08D04E65C /* Pods_FireStore_Rx_Example.framework */; };
 		316CC4D02982ACE800FF8DF2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 316CC4CF2982ACE800FF8DF2 /* AppDelegate.swift */; };
 		316CC4D22982ACE800FF8DF2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 316CC4D12982ACE800FF8DF2 /* SceneDelegate.swift */; };
 		316CC4D42982ACE800FF8DF2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 316CC4D32982ACE800FF8DF2 /* ViewController.swift */; };
 		316CC4D72982ACE800FF8DF2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 316CC4D52982ACE800FF8DF2 /* Main.storyboard */; };
 		316CC4D92982ACEA00FF8DF2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 316CC4D82982ACEA00FF8DF2 /* Assets.xcassets */; };
 		316CC4DC2982ACEA00FF8DF2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 316CC4DA2982ACEA00FF8DF2 /* LaunchScreen.storyboard */; };
+		316CC4E42982B22300FF8DF2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 316CC4E32982B22200FF8DF2 /* GoogleService-Info.plist */; };
+		316CC4E92982B30100FF8DF2 /* CategoryList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 316CC4E62982B30000FF8DF2 /* CategoryList.swift */; };
+		316CC4EA2982B30100FF8DF2 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 316CC4E72982B30000FF8DF2 /* Category.swift */; };
+		316CC4EB2982B30100FF8DF2 /* CategoryListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 316CC4E82982B30000FF8DF2 /* CategoryListItem.swift */; };
+		316CC4EE2982B45200FF8DF2 /* FirebaseCommon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 316CC4ED2982B45200FF8DF2 /* FirebaseCommon.swift */; };
+		316CC4F72982BD4B00FF8DF2 /* SharedSequence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 316CC4F02982BD4B00FF8DF2 /* SharedSequence.swift */; };
+		316CC4FD2982BD4B00FF8DF2 /* ObservableConvertibleType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 316CC4F62982BD4B00FF8DF2 /* ObservableConvertibleType.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +32,16 @@
 		316CC4D82982ACEA00FF8DF2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		316CC4DB2982ACEA00FF8DF2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		316CC4DD2982ACEA00FF8DF2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		316CC4E32982B22200FF8DF2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		316CC4E62982B30000FF8DF2 /* CategoryList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryList.swift; sourceTree = "<group>"; };
+		316CC4E72982B30000FF8DF2 /* Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
+		316CC4E82982B30000FF8DF2 /* CategoryListItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryListItem.swift; sourceTree = "<group>"; };
+		316CC4ED2982B45200FF8DF2 /* FirebaseCommon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseCommon.swift; sourceTree = "<group>"; };
+		316CC4F02982BD4B00FF8DF2 /* SharedSequence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SharedSequence.swift; sourceTree = "<group>"; };
+		316CC4F62982BD4B00FF8DF2 /* ObservableConvertibleType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObservableConvertibleType.swift; sourceTree = "<group>"; };
+		52349A2DDE8227070673321C /* Pods-FireStore_Rx_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FireStore_Rx_Example.release.xcconfig"; path = "Target Support Files/Pods-FireStore_Rx_Example/Pods-FireStore_Rx_Example.release.xcconfig"; sourceTree = "<group>"; };
+		65899DEBD71A70A08D04E65C /* Pods_FireStore_Rx_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FireStore_Rx_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		837D7836AA0ED5C78BBF6242 /* Pods-FireStore_Rx_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FireStore_Rx_Example.debug.xcconfig"; path = "Target Support Files/Pods-FireStore_Rx_Example/Pods-FireStore_Rx_Example.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +49,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2FE852751EEC3445694D0745 /* Pods_FireStore_Rx_Example.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -42,6 +61,8 @@
 			children = (
 				316CC4CE2982ACE800FF8DF2 /* FireStore_Rx_Example */,
 				316CC4CD2982ACE800FF8DF2 /* Products */,
+				797F64157B4F613D8EB9D883 /* Pods */,
+				804269E612D72D7820481D21 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,6 +77,10 @@
 		316CC4CE2982ACE800FF8DF2 /* FireStore_Rx_Example */ = {
 			isa = PBXGroup;
 			children = (
+				316CC4EC2982B45200FF8DF2 /* Common */,
+				316CC4E52982B30000FF8DF2 /* Models */,
+				316CC4EF2982BD4B00FF8DF2 /* Extensions */,
+				316CC4E32982B22200FF8DF2 /* GoogleService-Info.plist */,
 				316CC4CF2982ACE800FF8DF2 /* AppDelegate.swift */,
 				316CC4D12982ACE800FF8DF2 /* SceneDelegate.swift */,
 				316CC4D32982ACE800FF8DF2 /* ViewController.swift */,
@@ -67,6 +92,50 @@
 			path = FireStore_Rx_Example;
 			sourceTree = "<group>";
 		};
+		316CC4E52982B30000FF8DF2 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				316CC4E62982B30000FF8DF2 /* CategoryList.swift */,
+				316CC4E72982B30000FF8DF2 /* Category.swift */,
+				316CC4E82982B30000FF8DF2 /* CategoryListItem.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		316CC4EC2982B45200FF8DF2 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				316CC4ED2982B45200FF8DF2 /* FirebaseCommon.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		316CC4EF2982BD4B00FF8DF2 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				316CC4F02982BD4B00FF8DF2 /* SharedSequence.swift */,
+				316CC4F62982BD4B00FF8DF2 /* ObservableConvertibleType.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		797F64157B4F613D8EB9D883 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				837D7836AA0ED5C78BBF6242 /* Pods-FireStore_Rx_Example.debug.xcconfig */,
+				52349A2DDE8227070673321C /* Pods-FireStore_Rx_Example.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		804269E612D72D7820481D21 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				65899DEBD71A70A08D04E65C /* Pods_FireStore_Rx_Example.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -74,9 +143,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 316CC4E02982ACEA00FF8DF2 /* Build configuration list for PBXNativeTarget "FireStore_Rx_Example" */;
 			buildPhases = (
+				EF18FB861EC87CCBE8BFE826 /* [CP] Check Pods Manifest.lock */,
 				316CC4C82982ACE800FF8DF2 /* Sources */,
 				316CC4C92982ACE800FF8DF2 /* Frameworks */,
 				316CC4CA2982ACE800FF8DF2 /* Resources */,
+				8A39FFE35B8B6F803A9FF00A /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -126,6 +197,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				316CC4DC2982ACEA00FF8DF2 /* LaunchScreen.storyboard in Resources */,
+				316CC4E42982B22300FF8DF2 /* GoogleService-Info.plist in Resources */,
 				316CC4D92982ACEA00FF8DF2 /* Assets.xcassets in Resources */,
 				316CC4D72982ACE800FF8DF2 /* Main.storyboard in Resources */,
 			);
@@ -133,14 +205,62 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		8A39FFE35B8B6F803A9FF00A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-FireStore_Rx_Example/Pods-FireStore_Rx_Example-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-FireStore_Rx_Example/Pods-FireStore_Rx_Example-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-FireStore_Rx_Example/Pods-FireStore_Rx_Example-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EF18FB861EC87CCBE8BFE826 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-FireStore_Rx_Example-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		316CC4C82982ACE800FF8DF2 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				316CC4EB2982B30100FF8DF2 /* CategoryListItem.swift in Sources */,
 				316CC4D42982ACE800FF8DF2 /* ViewController.swift in Sources */,
+				316CC4EA2982B30100FF8DF2 /* Category.swift in Sources */,
 				316CC4D02982ACE800FF8DF2 /* AppDelegate.swift in Sources */,
+				316CC4EE2982B45200FF8DF2 /* FirebaseCommon.swift in Sources */,
+				316CC4FD2982BD4B00FF8DF2 /* ObservableConvertibleType.swift in Sources */,
 				316CC4D22982ACE800FF8DF2 /* SceneDelegate.swift in Sources */,
+				316CC4E92982B30100FF8DF2 /* CategoryList.swift in Sources */,
+				316CC4F72982BD4B00FF8DF2 /* SharedSequence.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -282,6 +402,7 @@
 		};
 		316CC4E12982ACEA00FF8DF2 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 837D7836AA0ED5C78BBF6242 /* Pods-FireStore_Rx_Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -299,7 +420,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "net.deskplate.FireStore-Rx-Example";
+				PRODUCT_BUNDLE_IDENTIFIER = .net.deskplate;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -309,6 +430,7 @@
 		};
 		316CC4E22982ACEA00FF8DF2 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 52349A2DDE8227070673321C /* Pods-FireStore_Rx_Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -326,7 +448,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "net.deskplate.FireStore-Rx-Example";
+				PRODUCT_BUNDLE_IDENTIFIER = .net.deskplate;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;

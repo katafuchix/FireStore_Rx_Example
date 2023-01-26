@@ -1,0 +1,21 @@
+#Xcode
+*.xcworkspace
+xcuserdata
+
+#CocoaPod
+Pods/*
+Podfile.lock
+
+# Carthage
+#
+# Add this line if you want to avoid checking in source code from Carthage dependencies.
+Carthage/Checkouts/*
+Carthage/Build/*
+
+# etc
+.DS_Store
+\#*
+
+R.generated.swift
+date.txt
+GoogleService-Info.plist
