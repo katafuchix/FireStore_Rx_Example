@@ -43,5 +43,12 @@ extension ObservableConvertibleType {
             .map { Result.succeeded($0) }
             .asDriver { Driver.just(Result.failed($0)) }
     }
+    
+
+    func materializeAsDriver() -> Driver<Event<Element>> {
+        return self.asObservable()
+            .materialize()
+            .asDriver(onErrorDriveWith: .empty())
+    }
 }
 ```
