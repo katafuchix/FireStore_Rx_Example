@@ -4,6 +4,11 @@
 - extension を作成して結果とエラーを一度で取得できるように
 - Podsも含めて M2 mac で Build Settings に変更を加えずにビルドできることを確認
 
+## qiita 
+- [RxSwift Firebase Firestore データ取得メモ](https://qiita.com/katafuchix/items/1bd2c2f7590b60a104a7)
+- [Swift FireBase FireStoreのrx実装](https://qiita.com/katafuchix/items/e8814c89597137f68e5c)
+
+
 ```
 let (objects, error) = Driver<[Model]>.split(result: Observable処理.resultDriver())
 
