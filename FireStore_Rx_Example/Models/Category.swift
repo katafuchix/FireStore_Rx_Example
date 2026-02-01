@@ -37,6 +37,17 @@ class Category {
         self.link           = document.get("url") as? String ?? ""
         self.name           = (document.get("name") as? String) ?? ""
     }
+    
+    // テストや手動作成のためのイニシャライザ
+    init(key: String, category_id: Int, id: Int, link: String, name: String, created_date: Date, updated_date: Date) {
+        self.key = key
+        self.category_id = category_id
+        self.id = id
+        self.link = link
+        self.name = name
+        self.created_date = created_date
+        self.updated_date = updated_date
+    }
 }
 
 extension Category: Equatable {
