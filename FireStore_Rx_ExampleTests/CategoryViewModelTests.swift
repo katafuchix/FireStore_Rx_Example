@@ -57,6 +57,46 @@ class CategoryViewModelTests: XCTestCase {
         XCTAssertEqual(resultValues, ["カテゴリ名: カフェ"])
     }
     
+    func test_loadList_success() {
+        let mockData = [Category(
+            key: "cat1", category_id: 1, id: 1, link: "",
+            name: "カフェ",
+            created_date: Date(), updated_date: Date()
+        )]
+        // Mockが Observable を返すように設定
+        mockRepository.stubbedCategories = .just(mockData)
+        
+        let observer = scheduler.createObserver(Int.self)
+        // 個数に変換
+        viewModel.categories.map { $0.count }.subscribe(observer).disposed(by: disposeBag)
+
+        viewModel.loadList()
+        scheduler.advanceTo(1) // これで Driver の中身が放出される
+
+        let results = observer.events.compactMap { $0.value.element }
+        print("--- [DEBUG] \(observer.events) ---")
+        print("--- [DEBUG] \(results) ---")
+        XCTAssertEqual(results, [1])
+    }
+    
+    func test_getCategories_failure() {
+        // Mockに .error を仕込む
+        mockRepository.stubbedCategories = .error(NSError(domain: "test", code: -1))
+
+        // エラーメッセージを監視するための observer を作成して購読する
+        let errorObserver = scheduler.createObserver(String.self)
+        viewModel.errorMessage
+            .subscribe(errorObserver)
+            .disposed(by: disposeBag)
+        
+        viewModel.loadList()
+        scheduler.advanceTo(1)
+
+        // 検証（errorMessageに値が流れたか）
+        let errorResult = errorObserver.events.compactMap { $0.value.element }.first
+        XCTAssertEqual(errorResult, "読み込み失敗")
+    }
+    
     func test_カテゴリー取得成功時に名前が加工されて通知されること() {
         // --- 準備 (Arrange) ---
         let mockData = Category(
@@ -108,7 +148,6 @@ class CategoryViewModelTests: XCTestCase {
 
 
 final class MockCategoryRepository: CategoryRepositoryType {
-    
     // --- テスト時に外から書き換えるための変数（スタブ） ---
     var stubbedCategory: FireStore_Rx_Example.Category? // 成功時に返したいデータ
     var shouldReturnError = false  // エラーを発生させたい場合は true にする
@@ -134,4 +173,13 @@ final class MockCategoryRepository: CategoryRepositoryType {
         // 3. どちらもなければ（設定忘れなど）エラーを流す
         return .error(NSError(domain: "no_stub_data", code: -2, userInfo: nil))
     }
+    
+    // テスト側から注入する「返却予定のデータ」を保持する変数
+        // 初期値に Observable.empty() を入れておくと、未設定でもクラッシュしません
+    var stubbedCategories: Observable<[FireStore_Rx_Example.Category]> = .empty()
+
+    func getCategories() -> Observable<[FireStore_Rx_Example.Category]> {
+            // テストで設定された Observable をそのまま返す
+            return stubbedCategories
+        }
 }

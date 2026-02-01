@@ -11,6 +11,7 @@ import RxSwift
 protocol CategoryRepositoryType {
     // DocumentSnapshotをそのまま返さず、Category（モデル）を返す
     func fetchCategory(id: String) -> Single<Category>
+    func getCategories() -> Observable<[Category]>
 }
 
 final class CategoryRepository: CategoryRepositoryType {
@@ -21,6 +22,15 @@ final class CategoryRepository: CategoryRepositoryType {
         return db.collection("categories").document(id).rx.getDocument()
             .map { snapshot in
                 try Category(from: snapshot) // ここで変換！
+            }
+    }
+    
+    func getCategories() -> Observable<[Category]> {
+        return Firestore.firestore().collection("goo_ranking_category")
+            .rx.getDocuments()
+            .map { $0.documents }
+            .map { documents in
+                documents.compactMap { doc in try? Category(from: doc) }
             }
     }
 }

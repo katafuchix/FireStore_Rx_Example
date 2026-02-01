@@ -6,6 +6,7 @@
 //
 
 import RxSwift
+import RxCocoa
 
 final class CategoryViewModel {
     private let repository: CategoryRepositoryType
@@ -15,11 +16,7 @@ final class CategoryViewModel {
     // 出力（Viewが購読するもの）
     let categoryName = PublishSubject<String>()
     let errorMessage = PublishSubject<String>()
-
-    /*
-    init(repository: CategoryRepositoryType) {
-        self.repository = repository
-    }*/
+    let categories = PublishSubject<[Category]>()
     
     // 初期値に MainScheduler.instance を入れることで、既存コードへの影響を最小限にする
     init(repository: CategoryRepositoryType, scheduler: SchedulerType = MainScheduler.instance) {
@@ -36,4 +33,18 @@ final class CategoryViewModel {
             })
             .disposed(by: disposeBag)
     }
+    
+    func loadList() {
+        let (list, err) = Driver<[Category]>
+            .split(result:repository.getCategories()
+            .observe(on: scheduler)
+            .resultDriver())
+            
+            list.drive(categories)
+                .disposed(by: disposeBag)
+                
+            err.map { _ in "読み込み失敗" }
+                .drive(errorMessage)
+                .disposed(by: disposeBag)
+        }
 }
