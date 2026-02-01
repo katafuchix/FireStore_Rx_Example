@@ -14,7 +14,6 @@
 		316CC4D72982ACE800FF8DF2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 316CC4D52982ACE800FF8DF2 /* Main.storyboard */; };
 		316CC4D92982ACEA00FF8DF2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 316CC4D82982ACEA00FF8DF2 /* Assets.xcassets */; };
 		316CC4DC2982ACEA00FF8DF2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 316CC4DA2982ACEA00FF8DF2 /* LaunchScreen.storyboard */; };
-		316CC4E42982B22300FF8DF2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 316CC4E32982B22200FF8DF2 /* GoogleService-Info.plist */; };
 		316CC4E92982B30100FF8DF2 /* CategoryList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 316CC4E62982B30000FF8DF2 /* CategoryList.swift */; };
 		316CC4EA2982B30100FF8DF2 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 316CC4E72982B30000FF8DF2 /* Category.swift */; };
 		316CC4EB2982B30100FF8DF2 /* CategoryListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 316CC4E82982B30000FF8DF2 /* CategoryListItem.swift */; };
@@ -48,7 +47,6 @@
 		316CC4D82982ACEA00FF8DF2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		316CC4DB2982ACEA00FF8DF2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		316CC4DD2982ACEA00FF8DF2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		316CC4E32982B22200FF8DF2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		316CC4E62982B30000FF8DF2 /* CategoryList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryList.swift; sourceTree = "<group>"; };
 		316CC4E72982B30000FF8DF2 /* Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		316CC4E82982B30000FF8DF2 /* CategoryListItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryListItem.swift; sourceTree = "<group>"; };
@@ -114,7 +112,6 @@
 				316CC4EC2982B45200FF8DF2 /* Common */,
 				316CC4E52982B30000FF8DF2 /* Models */,
 				316CC4EF2982BD4B00FF8DF2 /* Extensions */,
-				316CC4E32982B22200FF8DF2 /* GoogleService-Info.plist */,
 				316CC4CF2982ACE800FF8DF2 /* AppDelegate.swift */,
 				316CC4D12982ACE800FF8DF2 /* SceneDelegate.swift */,
 				316CC4D32982ACE800FF8DF2 /* ViewController.swift */,
@@ -265,7 +262,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				316CC4DC2982ACEA00FF8DF2 /* LaunchScreen.storyboard in Resources */,
-				316CC4E42982B22300FF8DF2 /* GoogleService-Info.plist in Resources */,
 				316CC4D92982ACEA00FF8DF2 /* Assets.xcassets in Resources */,
 				316CC4D72982ACE800FF8DF2 /* Main.storyboard in Resources */,
 			);
