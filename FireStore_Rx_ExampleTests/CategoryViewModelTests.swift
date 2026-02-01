@@ -101,6 +101,7 @@ class CategoryViewModelTests: XCTestCase {
         
         print("--- [DEBUG] 検証成功: \(firstEventPayload.first?.name ?? "") ---")
     }
+    
     func test_getCategories_failure() {
         // Mockに .error を仕込む
         mockRepository.stubbedCategories = .error(NSError(domain: "test", code: -1))
@@ -117,6 +118,33 @@ class CategoryViewModelTests: XCTestCase {
         // 検証（errorMessageに値が流れたか）
         let errorResult = errorObserver.events.compactMap { $0.value.element }.first
         XCTAssertEqual(errorResult, "読み込み失敗")
+    }
+    
+    func test_loadList_empty() {
+        // 1. 準備：空の配列をセットする
+        let mockData: [FireStore_Rx_Example.Category] = []
+        mockRepository.stubbedCategories = .just(mockData)
+        
+        let observer = scheduler.createObserver([FireStore_Rx_Example.Category].self)
+        viewModel.categories.subscribe(observer).disposed(by: disposeBag)
+
+        // 2. 実行
+        viewModel.loadList()
+        scheduler.advanceTo(1)
+
+        // 3. 検証
+        let results = observer.events.compactMap { $0.value.element }
+        
+        guard let firstEventPayload = results.first else {
+            XCTFail("イベント自体が発行されていません")
+            return
+        }
+
+        // 「成功はしたけれど、個数が0であること」を検証
+        XCTAssertEqual(firstEventPayload.count, 0, "配列が空である必要があります")
+        XCTAssertTrue(firstEventPayload.isEmpty)
+        
+        print("--- [DEBUG] 空配列のハンドリング成功 ---")
     }
     
     func test_カテゴリー取得成功時に名前が加工されて通知されること() {
