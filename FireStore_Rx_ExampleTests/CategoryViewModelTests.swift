@@ -58,27 +58,49 @@ class CategoryViewModelTests: XCTestCase {
     }
     
     func test_loadList_success() {
+        // 1. 準備：期待するデータを作成
+        let expectedKey = "cat1"
+        let expectedName = "カフェ"
+        
         let mockData = [Category(
-            key: "cat1", category_id: 1, id: 1, link: "",
-            name: "カフェ",
+            key: expectedKey, category_id: 1, id: 1, link: "",
+            name: expectedName,
             created_date: Date(), updated_date: Date()
         )]
-        // Mockが Observable を返すように設定
+        
         mockRepository.stubbedCategories = .just(mockData)
         
-        let observer = scheduler.createObserver(Int.self)
-        // 個数に変換
-        viewModel.categories.map { $0.count }.subscribe(observer).disposed(by: disposeBag)
+        // 中身を詳細に検証するため、型は [Category] そのものを監視する
+        let observer = scheduler.createObserver([FireStore_Rx_Example.Category].self)
+        viewModel.categories.subscribe(observer).disposed(by: disposeBag)
 
+        // 2. 実行
         viewModel.loadList()
-        scheduler.advanceTo(1) // これで Driver の中身が放出される
+        scheduler.advanceTo(1)
 
+        // 3. 検証データの取り出し
+        // results は [[Category]] (イベント履歴の配列) になる
         let results = observer.events.compactMap { $0.value.element }
-        print("--- [DEBUG] \(observer.events) ---")
-        print("--- [DEBUG] \(results) ---")
-        XCTAssertEqual(results, [1])
+        
+        // 最初のイベントで届いた配列を取り出す
+        guard let firstEventPayload = results.first else {
+            XCTFail("データが届いていません")
+            return
+        }
+
+        // --- 3つのポイントを検証 ---
+        
+        // ① 個数のチェック
+        XCTAssertEqual(firstEventPayload.count, 1, "届いた配列の要素数が正しくありません")
+        
+        // ② 中身の名前のチェック
+        XCTAssertEqual(firstEventPayload.first?.name, expectedName, "カテゴリ名が一致しません")
+        
+        // ③ ID (Key) のチェック
+        XCTAssertEqual(firstEventPayload.first?.key, expectedKey, "Key(ID)が一致しません")
+        
+        print("--- [DEBUG] 検証成功: \(firstEventPayload.first?.name ?? "") ---")
     }
-    
     func test_getCategories_failure() {
         // Mockに .error を仕込む
         mockRepository.stubbedCategories = .error(NSError(domain: "test", code: -1))

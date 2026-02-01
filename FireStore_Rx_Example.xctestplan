@@ -1,0 +1,30 @@
+{
+  "configurations" : [
+    {
+      "id" : "DED2757A-B38C-49F4-AD94-382D93E21D76",
+      "name" : "Test Scheme Action",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "performanceAntipatternCheckerEnabled" : true,
+    "targetForVariableExpansion" : {
+      "containerPath" : "container:FireStore_Rx_Example.xcodeproj",
+      "identifier" : "316CC4CB2982ACE800FF8DF2",
+      "name" : "FireStore_Rx_Example"
+    }
+  },
+  "testTargets" : [
+    {
+      "parallelizable" : true,
+      "target" : {
+        "containerPath" : "container:FireStore_Rx_Example.xcodeproj",
+        "identifier" : "311B45922F2EF27D00F40E3C",
+        "name" : "FireStore_Rx_ExampleTests"
+      }
+    }
+  ],
+  "version" : 1
+}

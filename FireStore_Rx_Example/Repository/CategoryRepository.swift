@@ -26,7 +26,7 @@ final class CategoryRepository: CategoryRepositoryType {
     }
     
     func getCategories() -> Observable<[Category]> {
-        return Firestore.firestore().collection("goo_ranking_category")
+        return Firestore.firestore().collection("categories")
             .rx.getDocuments()
             .map { $0.documents }
             .map { documents in
