@@ -1,0 +1,54 @@
+# This workflow will build a Swift project
+# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-swift
+
+name: Swift
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  test:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Select Latest Xcode
+        run: |
+          # サーバー内の最新Xcodeを探して設定
+          LATEST_XCODE=$(ls /Applications | grep Xcode | sort -V | tail -1)
+          echo "Using Xcode: $LATEST_XCODE"
+          sudo xcode-select -s "/Applications/$LATEST_XCODE/Contents/Developer"
+          
+      - name: Run Tests
+        run: |
+          # 利用可能なシミュレーターを1つ自動取得して変数に入れる
+          # DESTINATION=$(xcrun simctl list devices available | grep "iPhone" | head -1 | sed -e 's/ (.*//' -e 's/^[ \t]*//')
+          # echo "Selected Destination: $DESTINATION"
+          xcodebuild test \
+            -project FireStore_Rx_Example.xcodeproj \
+            -scheme FireStore_Rx_Example \
+            -destination 'platform=iOS Simulator,name=iPhone 17,OS=26.2,arch=arm64' \
+            -enableCodeCoverage YES \
+            -quiet
+  
+          # 2. デフォルトの出力場所（DerivedData）からカバレッジを表示
+          echo "--- Code Coverage Report ---"
+          # 最新のテスト結果を探して表示するコマンド
+          #xcrun xccov view --report $(ls -td ~/Library/Developer/Xcode/DerivedData/*/Logs/Test/*.xcresult | head -1)
+
+          echo "--- Code Coverage Report (Filtered) ---"
+          # 最新のxcresultを取得
+          RESULT_PATH=$(ls -td ~/Library/Developer/Xcode/DerivedData/*/Logs/Test/*.xcresult 2>/dev/null | head -1)
+          
+          if [ -n "$RESULT_PATH" ]; then
+            # xcrunの結果をパイプで繋いで、不要な行を削る 
+            xcrun xccov view --report "$RESULT_PATH" | \
+              grep "FireStore_Rx_Example" | \
+              grep -v "Tests/" | \
+              grep -v "Tests.swift:" || true
+          else
+            echo "❌ xcresult not found"
+          fi
